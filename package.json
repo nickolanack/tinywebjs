@@ -1,0 +1,23 @@
+{
+  "name": "tinywebjs",
+  "version": "0.0.0",
+  "description": "a super minimal web server in node",
+  "main": "server.js",
+  "scripts": {
+    "test": "node html/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nickolanack/tinywebjs.git"
+  },
+  "keywords": [
+    "webserver"
+  ],
+  "author": "Nick Blackwell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nickolanack/tinywebjs/issues"
+  },
+  "dependencies":{
+  }
+}
