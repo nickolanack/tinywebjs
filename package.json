@@ -4,7 +4,7 @@
   "description": "a super minimal web server in node",
   "main": "server.js",
   "scripts": {
-    "test": "node html/test.js"
+    "test": "node test/test.js"
   },
   "repository": {
     "type": "git",
