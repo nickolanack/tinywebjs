@@ -67,8 +67,8 @@ function Server(config){
 
 };
 
-WSBridgeProxy.prototype.__proto__ = events.EventEmitter.prototype;
-WSBridgeProxy.prototype.stop=function(){}
+Server.prototype.__proto__ = events.EventEmitter.prototype;
+Server.prototype.stop=function(){}
 
 
 module.exports=Server;
@@ -92,18 +92,6 @@ if(process.argv){
 			//console.log(p1+' '+p2);
 
 			if(p1===p2){
-
-				console.log(process.argv);
-
-				if(process.argc>=3){
-					var opt={port:parseInt(process.argv[2])};
-					if(process.argc>3){
-						opt.basicauth=process.argv[3];
-					}
-					new WSBridgeProxy(opt);
-				}else{
-					new WSBridgeProxy(require('./bridgeproxy.json'));
-				}
 
 
 			}
