@@ -8,12 +8,23 @@ function Server(config){
 	var me=this;
 	events.EventEmitter.call(me);
 	//Simple webserver
+	
+	
+	var config={
+			port:80,
+			documentRoot:__dirname+'/html/'
+	};
+	
+	Object.keys(options).forEach(function (key) {
+		config[key]=options[key];
+	});
+	
 
 	var fs=require('fs');
 	var http=require('http');
 	//var async=require('async');
 	var port=config.port;
-	var documentRoot='./html/';
+	var documentRoot=config.documentRoot;
 
 	var server=http.createServer(function(req, res) {
 
@@ -85,10 +96,19 @@ if(process.argv){
 	fs.realpath(process.argv[1],function(err, p1){
 
 		fs.realpath(__filename,function(err, p2){
-
-			//console.log(p1+' '+p2);
-
 			if(p1===p2){
+
+				console.log(process.argv);
+
+				if(process.argc>=3){
+					var opt={port:parseInt(process.argv[2])};
+					if(process.argc>3){
+						opt.root=process.argv[3];
+					}
+					new Server(opt);
+				}else{
+					new Server({});
+				}
 
 
 			}
