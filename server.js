@@ -3,7 +3,7 @@
  */
 var events = require('events');
 
-function Server(config){
+function Server(options){
 
 	var me=this;
 	events.EventEmitter.call(me);
