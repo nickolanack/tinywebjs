@@ -1,9 +1,6 @@
 /**
  * 
  */
-
-var config=require('./server.json');
-
 var events = require('events');
 
 function Server(config){
@@ -15,7 +12,7 @@ function Server(config){
 	var fs=require('fs');
 	var http=require('http');
 	//var async=require('async');
-	var port=config.serverPort;
+	var port=config.port;
 	var documentRoot='./html/';
 
 	var server=http.createServer(function(req, res) {
