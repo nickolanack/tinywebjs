@@ -22,7 +22,7 @@ var server=(new WebServer({port:8091})).on('open',function(){
 		}).on('end',function(){
 			var filename='../html/index.html';
 			require('fs').readFile(filename, function(err, content){
-				assert.equals(content, data.join(''));
+				assert.equal(content, data.join(''));
 			});
 		});
 
