@@ -13,4 +13,6 @@ var req = require('http').request('http://localhost:8091', function(res) {
 	
 	console.log(res);
 	
+}).on('error', function(e) {
+  assert.fail(e.message);
 });
