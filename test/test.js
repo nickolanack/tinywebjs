@@ -8,16 +8,18 @@ var assert=require('assert');
 var WebServer=require('../server.js');
 var server=new WebServer({port:8091});
 
+var http=require('http');
+http.request({
+	hostname: 'localhost',
+	port: 8091
+}, function(res) {
 
-var req = require('http').request('http://localhost:8091', function(res) {
-	
-	console.log(res);
-	assert.fail('...');
-	
+
+
 }).on('error', function(e) {
-  assert.fail(e.message);
+	assert.fail(e.message);
 });
 
 setTimeout(function(){
-	 assert.fail('fail');
+	assert.fail('fail');
 },1000);
