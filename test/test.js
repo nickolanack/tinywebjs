@@ -19,7 +19,3 @@ http.request({
 }).on('error', function(e) {
 	assert.fail(e.message);
 }).end();
-
-setTimeout(function(){
-	assert.fail('fail');
-},1000);
