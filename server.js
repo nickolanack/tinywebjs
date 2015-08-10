@@ -81,6 +81,7 @@ Server.prototype.__proto__ = events.EventEmitter.prototype;
 Server.prototype.stop=function(){
 	var me=this;
 	me.server.close(function(){
+		console.log('webserver is stopped, waiting for any remaining connections to close/timeout');
 		me.emit('close');
 	});
 }
