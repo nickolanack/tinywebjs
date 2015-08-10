@@ -16,7 +16,15 @@ var server=(new WebServer({port:8091})).on('open',function(){
 		port: 8091
 	}, function(res) {
 
-		server.stop();
+		var data='';
+		res.on('data', function (chunk) {
+			data + =chunk;
+		}).on('end',function(){
+			var filename='../html/index.html';
+			require('fs').readFile(filename, function(err, content){
+				assert.equals(content, data);
+			});
+		});
 
 	}).on('error', function(e) {
 		assert.fail(e.message);
