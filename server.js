@@ -3,7 +3,7 @@
  */
 var events = require('events');
 
-function Server(options, callback){
+function Server(options){
 
 	var me=this;
 	events.EventEmitter.call(me);
@@ -26,7 +26,7 @@ function Server(options, callback){
 	var port=config.port;
 	var documentRoot=config.documentRoot;
 
-	var server=http.createServer(function(req, res) {
+	me.server=http.createServer(function(req, res) {
 
 		var file=req.url.split('/').pop();
 		if(file===''){
@@ -68,15 +68,21 @@ function Server(options, callback){
 
 		}
 
+	}).listen(port, function(){
+		me.emit('open');
 	});
-
-	server.listen(port, callback);
+	
 	console.log('webserver listening on: '+port);
 
 };
 
 Server.prototype.__proto__ = events.EventEmitter.prototype;
-Server.prototype.stop=function(){}
+Server.prototype.stop=function(){
+	var me=this;
+	me.server.close(function(){
+		me.emit('close');
+	});
+}
 
 
 module.exports=Server;
