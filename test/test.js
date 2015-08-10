@@ -17,3 +17,7 @@ var req = require('http').request('http://localhost:8091', function(res) {
 }).on('error', function(e) {
   assert.fail(e.message);
 });
+
+setTimeout(function(){
+	 assert.fail('fail');
+},1000);
