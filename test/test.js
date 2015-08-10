@@ -16,13 +16,13 @@ var server=(new WebServer({port:8091})).on('open',function(){
 		port: 8091
 	}, function(res) {
 
-		var data='';
+		var data[];
 		res.on('data', function (chunk) {
-			data + =chunk;
+			data.push(chunk);
 		}).on('end',function(){
 			var filename='../html/index.html';
 			require('fs').readFile(filename, function(err, content){
-				assert.equals(content, data);
+				assert.equals(content, data.join(''));
 			});
 		});
 
