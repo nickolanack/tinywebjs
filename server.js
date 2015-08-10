@@ -3,7 +3,7 @@
  */
 var events = require('events');
 
-function Server(options){
+function Server(options, callback){
 
 	var me=this;
 	events.EventEmitter.call(me);
@@ -70,7 +70,7 @@ function Server(options){
 
 	});
 
-	server.listen(port);
+	server.listen(port, callback);
 	console.log('webserver listening on: '+port);
 
 };
