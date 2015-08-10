@@ -69,10 +69,11 @@ function Server(options){
 		}
 
 	}).listen(port, function(){
+		console.log('webserver listening on: '+port);
 		me.emit('open');
 	});
 	
-	console.log('webserver listening on: '+port);
+	
 
 };
 
