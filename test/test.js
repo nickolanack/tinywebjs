@@ -26,6 +26,7 @@ var server=(new WebServer({port:8091})).on('open',function(){
 					throw err;
 				}
 				assert.equal(content, data.join(''));
+				server.close();
 			});
 		});
 
