@@ -64,7 +64,7 @@ function Server(options){
 		}else{
 
 			res.writeHead(500);
-			res.end('resuest: '+file);
+			res.end('request: '+file);
 
 		}
 

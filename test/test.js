@@ -8,6 +8,7 @@ var assert=require('assert');
 var WebServer=require('../server.js');
 var server=(new WebServer({port:8091})).on('open',function(){
 
+	console.log('Test Request');
 
 	var http=require('http');
 	http.request({
