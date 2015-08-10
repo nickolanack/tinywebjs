@@ -20,7 +20,7 @@ var server=(new WebServer({port:8091})).on('open',function(){
 		res.on('data', function (chunk) {
 			data.push(chunk);
 		}).on('end',function(){
-			var filename='../html/index.html';
+			var filename=(__dirname).split('/').pop().join('/')+'/html/index.html';
 			require('fs').readFile(filename, function(err, content){
 				if(err){
 					throw err;
