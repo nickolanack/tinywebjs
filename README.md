@@ -1,4 +1,6 @@
 # tinywebjs
-An ultra minimal web server in node that serves content from a folder
 
-- just the webserver part of rpi-node-gpio-server
+An ultra minimal web server in node that serves basic web content from a folder
+
+
+[![Build Status](https://travis-ci.org/nickolanack/tinywebjs.svg)](https://travis-ci.org/nickolanack/tinywebjs)
