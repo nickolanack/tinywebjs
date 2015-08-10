@@ -16,7 +16,7 @@ var server=(new WebServer({port:8091})).on('open',function(){
 		port: 8091
 	}, function(res) {
 
-		var data[];
+		var data=[];
 		res.on('data', function (chunk) {
 			data.push(chunk);
 		}).on('end',function(){
