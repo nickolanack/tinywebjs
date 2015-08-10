@@ -80,8 +80,9 @@ function Server(options){
 Server.prototype.__proto__ = events.EventEmitter.prototype;
 Server.prototype.stop=function(){
 	var me=this;
+	console.log('webserver will be stopped after connections to close/timeout');
 	me.server.close(function(){
-		console.log('webserver is stopped, waiting for any remaining connections to close/timeout');
+		console.log('webserver stopped');
 		me.emit('close');
 	});
 }
