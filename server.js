@@ -119,7 +119,6 @@ if(process.argv){
 					new Server({});
 				}
 
-
 			}
 
 		});
