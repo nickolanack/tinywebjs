@@ -19,6 +19,7 @@ function Server(options){
 		config[key]=options[key];
 	});
 	
+	me._handlers={};
 
 	var fs=require('fs');
 	var http=require('http');
@@ -63,8 +64,16 @@ function Server(options){
 			});
 		}else{
 
+			if((typeof me.handlers[file])=='function'){
+				
+				 me.handlers[file](req, res);
+				
+			}else{
+			
 			res.writeHead(500);
 			res.end('request: '+file);
+			
+			}
 
 		}
 
@@ -85,6 +94,11 @@ Server.prototype.stop=function(){
 		console.log('webserver stopped');
 		me.emit('close');
 	});
+}
+
+
+Server.prototype.addHandler=function(path, callback){
+	me._handlers=[path]=callback;
 }
 
 
