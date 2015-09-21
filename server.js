@@ -64,9 +64,9 @@ function Server(options){
 			});
 		}else{
 
-			if((typeof me.handlers[file])=='function'){
+			if((typeof me._handlers[file])=='function'){
 				
-				 me.handlers[file](req, res);
+				 me._handlers[file](req, res);
 				
 			}else{
 			
