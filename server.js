@@ -99,7 +99,7 @@ Server.prototype.stop=function(){
 
 Server.prototype.addHandler=function(path, callback){
 	var me=this
-	me._handlers=[path]=callback;
+	me._handlers[path]=callback;
 	return me;
 }
 
