@@ -45,6 +45,11 @@ function Server(options) {
 					};
 
 					var type = file.split('.').pop();
+
+					if(!contentTypes[type]){
+						throw 'Invalid document type: '+type;
+					}
+
 					res.writeHead(200, {
 						'Content-Type': contentTypes[type]
 					});
