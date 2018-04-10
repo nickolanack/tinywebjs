@@ -41,7 +41,8 @@ function Server(options) {
 					var contentTypes = {
 						js: 'text/javascript',
 						css: 'text/css',
-						html: 'text/html'
+						html: 'text/html',
+						ico:'image/x-icon'
 					};
 
 					var type = file.split('.').pop();
