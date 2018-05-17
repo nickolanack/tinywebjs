@@ -20,6 +20,12 @@ function Server(options) {
 	});
 
 	me._handlers = {};
+	me._formatters={};
+	if(options.formatters){
+		Object.keys(config.formatters).forEach(function(key) {
+			me._formatters[key] = config.formatters[key];
+		});
+	}
 
 	var fs = require('fs');
 	var http = require('http');
@@ -56,6 +62,11 @@ function Server(options) {
 					});
 
 					fs.readFile(documentRoot + file, function(err, data) {
+
+						if(me._formatters[type]){
+							data=me._formatters[type](data);
+						}
+
 						res.write(data);
 						res.end();
 					});
@@ -108,6 +119,13 @@ Server.prototype.addHandler = function(path, callback) {
 	return me;
 }
 
+
+
+Server.prototype.addFormatter = function(type, fn) {
+	var me = this
+	me._formatters[type] = fn;
+	return me;
+}
 
 module.exports = Server;
 
